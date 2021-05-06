@@ -1,0 +1,35 @@
+#title{
+    width:100%;
+    font-size: 20px;
+    margin-top: 0;
+}
+#title_2{
+    color:black;
+font-size: 15px;
+}
+body{
+    background-image: url("background.jpg");
+    background-size: cover;
+}
+#play_btn{
+    font-size: 25px;
+ text-align: center;
+}
+#speed img{
+    width: 200px;
+}
+#speed{
+    float: left;
+}
+#volume img{
+    width: 200px;
+}
+#volume{
+    float:right;
+}
+canvas{
+    border: white;
+    border-radius: 15px;
+    border-width: 10px;
+    border-style: solid;
+}
