@@ -16,6 +16,30 @@ function setup(){
 }
 function draw(){
     image(video,0,0,600,500)
+    if(score_right_wrist>0.2){
+        fill(0,128,128)
+        circle(right_wrist_x,right_wrist_y,20)
+        if(right_wrist_y>0 && right_wrist_y<=100){
+            document.getElementById("speed2").innerHTML="0.5x"
+            song.rate(0.5)
+        }
+        if(right_wrist_y>100 && right_wrist_y<=200){
+            document.getElementById("speed2").innerHTML="1x"
+            song.rate(1)
+        }
+        if(right_wrist_y>200 && right_wrist_y<=300){
+            document.getElementById("speed2").innerHTML="1.5x"
+            song.rate(1.5)
+        } 
+           if(right_wrist_y>300 && right_wrist_y<=400){
+            document.getElementById("speed2").innerHTML="2x"
+            song.rate(2)
+        } 
+           if(right_wrist_y>400 && right_wrist_y<=500){
+            document.getElementById("speed2").innerHTML="2.5x"
+            song.rate(2.5)
+        }
+    }
     if(score_left_wrist>0.2){
         fill(255,0,0) 
         circle(left_wrist_x,left_wrist_y,20)
@@ -30,12 +54,15 @@ function preload(){
     song=loadSound("music.mp3");
 }
 function songplay(){
-    song.rate(1)
-    song.setVolume(0.2)
-    song.play()
-}
-function songstop(){
-    song.stop()
+    music_status = song.isPlaying();
+    if(music_status==true){
+      song.stop()
+    }
+    else{
+        song.rate(1)
+        song.setVolume(0.2)
+        song.play()
+    }
 }
 function modelloaded(){
     console.log("your model has been loaded")
